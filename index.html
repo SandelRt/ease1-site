@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EASE 1 — Step in and go</title>
+<meta name="description" content="EASE 1: the barefoot sneaker you step into. Easy-on, zero-drop, 3D-printed to your exact feet. $189, free delivery in the US & Europe.">
+<link rel="canonical" href="https://easefootwearbyryanjans.com">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<meta property="og:type" content="product">
+<meta property="og:title" content="EASE 1 — Step in and go">
+<meta property="og:description" content="The barefoot sneaker you step into. Easy-on, zero-drop, printed to your feet. $189, free delivery.">
+<meta property="og:url" content="https://easefootwearbyryanjans.com">
+<meta property="og:image" content="https://easefootwearbyryanjans.com/images/ease1-angle.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --paper2:#faf6ef; --sand:#ece4d5; --plate:#1a1a1a;
+  --ink:#262019; --ink2:#3f382e; --mut:#7c7264; --mut2:#9a8f7e;
+  --line:#e3dac9; --line2:#d4c9b5;
+  --clay:#a8432a; --claydark:#8c3620; --cream:#f7f3ec;
+  --disp:'Fraunces',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.col{max-width:600px;margin:0 auto;padding:0 22px;position:relative}
+.kicker{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:600}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:40;background:rgba(244,239,230,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{max-width:600px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:14px}
+.wordmark{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:.02em}
+.logo-mark{width:30px;height:30px;border-radius:7px;object-fit:cover;flex:none}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.top-price{font-size:14px;color:var(--mut)}
+.top-buy{font-size:13.5px;font-weight:600;color:var(--cream);background:var(--clay);padding:8px 15px;border-radius:9px;text-decoration:none;border:1px solid var(--claydark)}
+.top-buy:hover{background:var(--claydark)}
+
+/* hero */
+.hero{padding:30px 0 6px}
+.hero .kicker{display:block;margin-bottom:16px}
+h1{font-family:var(--disp);font-weight:500;font-size:clamp(52px,17vw,86px);line-height:.9;letter-spacing:-.02em;margin:0}
+.tagline{font-family:var(--disp);font-style:italic;font-weight:400;font-size:clamp(21px,6vw,26px);color:var(--ink2);margin:10px 0 22px}
+
+/* product plates (dark, matching render background) */
+.shot{background:var(--plate);border:1px solid rgba(38,32,25,.10);border-radius:16px;overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 52px -34px rgba(26,26,26,.55)}
+.shot img{width:100%;height:100%;object-fit:contain}
+.shot .ph{display:none;flex-direction:column;align-items:center;gap:6px;color:#8f8a83;font-family:var(--disp);font-size:24px}
+.shot.broken img{display:none}
+.shot.broken .ph{display:flex}
+
+.buyrow{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:24px 0 4px}
+.price{font-family:var(--disp);font-size:34px;font-weight:500;line-height:1}
+.deliver{font-size:13.5px;color:var(--mut);text-align:right;max-width:16ch}
+
+/* color picker */
+.picker{margin:22px 0 20px}
+.picker .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.picker .lab{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.picker .cname{font-family:var(--disp);font-size:17px;color:var(--ink)}
+.swatches{display:flex;gap:11px;margin-top:12px}
+.sw{width:34px;height:34px;border-radius:50%;cursor:pointer;padding:0;border:1px solid var(--line2);position:relative;transition:transform .18s}
+.sw[aria-pressed="true"]{transform:scale(1.06)}
+.sw[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--ink)}
+.pick-note{font-size:12.5px;color:var(--mut);margin:12px 0 0}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 22px;border-radius:12px;font-family:var(--sans);font-size:16.5px;font-weight:600;text-decoration:none;text-align:center;border:1px solid var(--claydark);background:var(--clay);color:var(--cream);cursor:pointer;transition:background .2s,transform .15s;min-height:54px}
+.btn:hover{background:var(--claydark);transform:translateY(-1px)}
+.btn .ar{font-weight:400}
+.microcopy{font-size:12.5px;color:var(--mut);text-align:center;margin-top:10px}
+
+/* spec list */
+.spec{margin-top:26px;border-top:1px solid var(--line)}
+.spec .r{display:flex;justify-content:space-between;gap:16px;padding:12px 2px;border-bottom:1px solid var(--line)}
+.spec .r dt{color:var(--mut);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.spec .r dd{margin:0;text-align:right;font-size:15px;color:var(--ink)}
+
+/* sections */
+section{padding:46px 0;border-top:1px solid var(--line)}
+section .kicker{display:block;margin-bottom:12px}
+h2{font-family:var(--disp);font-weight:500;font-size:clamp(27px,5.5vw,34px);line-height:1.08;letter-spacing:-.01em;margin:0 0 8px}
+.lede{color:var(--ink2);font-size:17px;margin:0 0 6px;max-width:52ch}
+
+/* numbered idea list */
+.ideas{margin-top:22px;display:flex;flex-direction:column}
+.idea{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.idea:first-child{border-top:0;padding-top:6px}
+.idea .no{font-family:var(--disp);font-size:20px;color:var(--clay);font-weight:500;line-height:1.2}
+.idea h3{font-family:var(--disp);font-weight:500;font-size:20px;margin:0 0 4px}
+.idea p{margin:0;color:var(--mut);font-size:15px}
+
+/* steps */
+.steps{margin-top:8px}
+.stepr{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.stepr .no{font-family:var(--disp);font-size:19px;color:var(--clay)}
+.stepr h4{font-family:var(--disp);font-weight:500;font-size:18px;margin:0 0 3px}
+.stepr p{margin:0;color:var(--mut);font-size:15px}
+.stepr a{color:var(--clay);text-decoration:underline;text-underline-offset:3px}
+.pull{margin-top:22px;font-family:var(--disp);font-style:italic;font-size:19px;color:var(--ink2);line-height:1.4;padding-left:16px;border-left:2px solid var(--clay)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.gal figure{margin:0}
+.gal .shot{aspect-ratio:1/1;box-shadow:none}
+.gal figcaption{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-top:8px;text-align:center}
+
+/* affirmations */
+.aff{margin-top:10px;display:flex;flex-direction:column;gap:2px}
+.aff .a{display:grid;grid-template-columns:auto 1fr;gap:13px;align-items:start;padding:15px 0;border-bottom:1px solid var(--line)}
+.aff .a:last-child{border-bottom:0}
+.tick{width:21px;height:21px;color:var(--clay);flex:none;margin-top:2px}
+.aff .a p{margin:0;font-size:15.5px;color:var(--ink2)}
+.aff .a b{color:var(--ink);font-weight:600}
+
+/* creators */
+.creator p{color:var(--ink2);font-size:15.5px;margin:0 0 12px;max-width:56ch}
+.creator p b{color:var(--ink);font-weight:600}
+.creator .sig{font-family:var(--disp);font-style:italic;font-size:18px;color:var(--ink);border-top:1px solid var(--line);padding-top:14px;margin-top:2px}
+.brandmark{margin:0 0 18px}
+.brandmark img{width:78px;height:78px;border-radius:15px;object-fit:cover;display:block}
+.brandmark figcaption{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);margin-top:9px}
+
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{padding:16px 2px;font-weight:600;font-size:16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary .pm{color:var(--clay);font-size:22px;font-weight:400;line-height:1;transition:transform .2s;font-family:var(--disp)}
+details[open] summary .pm{transform:rotate(45deg)}
+details p{margin:0;padding:0 2px 18px;font-size:15px;color:var(--mut);max-width:56ch}
+details a{color:var(--clay);text-decoration:underline;text-underline-offset:3px}
+
+/* final */
+.final{text-align:center;padding:52px 0 8px}
+.final h2{font-size:clamp(34px,9vw,48px);margin-bottom:20px}
+.final .btn{max-width:340px;margin:0 auto}
+
+/* footer */
+.flinks{margin-top:30px;border-top:1px solid var(--line)}
+.flink{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 2px;border-bottom:1px solid var(--line);text-decoration:none;font-size:15px;font-weight:500}
+.flink .ar{color:var(--mut2);transition:transform .18s}
+.flink:hover .ar{transform:translateX(3px)}
+.foot{color:var(--mut2);font-size:12.5px;padding:26px 2px 14px;line-height:1.7}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:45;background:rgba(244,239,230,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:11px 22px calc(11px + env(safe-area-inset-bottom))}
+.sticky-in{max-width:600px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.sticky .lbl{flex:none}
+.sticky .lbl .p{font-family:var(--disp);font-size:19px;line-height:1}
+.sticky .lbl .s{font-size:11.5px;color:var(--mut)}
+.sticky .btn{flex:1;padding:14px 18px;min-height:48px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <img class="logo-mark" src="images/logo.png" alt="Ease Footwear logo"> <span class="wordmark">EASE&nbsp;1</span>
+    <div class="top-right">
+      <span class="top-price">$189</span>
+      <a class="top-buy buy" data-place="topbar" href="#" target="_blank" rel="noopener">Buy</a>
+    </div>
+  </div>
+</header>
+
+<main class="col">
+
+  <!-- HERO -->
+  <section class="hero" style="border:0">
+    <span class="kicker">Ease Footwear by Ryan Jans · 3D-printed on Zellerfeld</span>
+    <h1>EASE 1</h1>
+    <p class="tagline">Step in and go.</p>
+
+    <figure class="shot" id="heroCard" style="margin:0">
+      <img id="heroImg" alt="EASE 1 barefoot sneaker, side profile" src="images/ease1-side.png" width="1165" height="502">
+      <figcaption class="ph">EASE&nbsp;1<small style="font-size:12px;letter-spacing:.14em">STEP IN</small></figcaption>
+    </figure>
+
+    <div class="buyrow">
+      <span class="price">$189</span>
+      <span class="deliver">Free delivery in the US &amp; Europe</span>
+    </div>
+
+    <div class="picker">
+      <div class="row">
+        <span class="lab">Color</span>
+        <span class="cname" id="colorName">Stone</span>
+      </div>
+      <div class="swatches" id="swatches"></div>
+      <p class="pick-note">Tap a color — your choice carries through to checkout.</p>
+    </div>
+
+    <a class="btn buy" data-place="hero" href="#" target="_blank" rel="noopener">Buy on Zellerfeld <span class="ar">→</span></a>
+    <p class="microcopy">Printed to your exact feet · secure checkout on zellerfeld.com</p>
+
+    <dl class="spec">
+      <div class="r"><dt>Drop</dt><dd>0&nbsp;mm · true barefoot</dd></div>
+      <div class="r"><dt>Entry</dt><dd>Hands-free step-in</dd></div>
+      <div class="r"><dt>Outsole</dt><dd>Herringbone, all-direction grip</dd></div>
+      <div class="r"><dt>Material</dt><dd>ZellerFoam™ · breathable &amp; reusable</dd></div>
+      <div class="r"><dt>Fit</dt><dd>3D-printed to your foot scan</dd></div>
+      <div class="r"><dt>Delivery</dt><dd>Free · ships in 3–4 weeks</dd></div>
+    </dl>
+  </section>
+
+  <!-- IDEA -->
+  <section>
+    <span class="kicker">Why EASE 1</span>
+    <h2>Barefoot, easy-on, and yours alone.</h2>
+    <p class="lede">Three things that had never lived in one shoe — until this one.</p>
+    <div class="ideas">
+      <div class="idea"><div class="no">01</div><div><h3>Easy-on</h3><p>A semi-collapsible heel means you step in and go — no hands, no bending, no sitting down to fight with it.</p></div></div>
+      <div class="idea"><div class="no">02</div><div><h3>Barefoot</h3><p>Zero drop and minimal cushioning let your foot move the way it's meant to, with herringbone grip underfoot.</p></div></div>
+      <div class="idea"><div class="no">03</div><div><h3>Made to fit</h3><p>Printed to your exact measurements, one pair at a time. Not a size pulled off a shelf.</p></div></div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section>
+    <span class="kicker">How it's made</span>
+    <h2>Made to your measurements.</h2>
+    <div class="steps">
+      <div class="stepr"><div class="no">1</div><div><h4>Scan your feet</h4><p>A quick scan with your phone captures your exact size. <a href="https://www.zellerfeld.com/pages/how-to-scan-your-feet" target="_blank" rel="noopener">See the guide →</a></p></div></div>
+      <div class="stepr"><div class="no">2</div><div><h4>We print your pair</h4><p>Made to your measurements, not a generic size off a shelf.</p></div></div>
+      <div class="stepr"><div class="no">3</div><div><h4>It arrives in 3–4 weeks</h4><p>Delivered free across the US and Europe, ready to step into.</p></div></div>
+    </div>
+    <p class="pull">Why the wait? Because it isn't sitting in a warehouse. Each pair is made to order for your feet — bespoke, not mass-produced.</p>
+  </section>
+
+  <!-- GALLERY -->
+  <section>
+    <span class="kicker">Details</span>
+    <h2>Up close.</h2>
+    <div class="gal">
+      <figure><div class="shot"><img loading="lazy" alt="EASE 1 top view, pair" src="images/ease1-top.png"><span class="ph">Top</span></div><figcaption>Top</figcaption></figure>
+      <figure><div class="shot"><img loading="lazy" alt="EASE 1 herringbone outsole" src="images/ease1-sole.png"><span class="ph">Sole</span></div><figcaption>Outsole</figcaption></figure>
+      <figure><div class="shot"><img loading="lazy" alt="EASE 1 collapsible heel from behind" src="images/ease1-heel.png"><span class="ph">Heel</span></div><figcaption>Heel</figcaption></figure>
+      <figure><div class="shot"><img loading="lazy" alt="EASE 1 three-quarter angle, pair" src="images/ease1-angle.png"><span class="ph">Angle</span></div><figcaption>Profile</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- AFFIRMATIONS -->
+  <section>
+    <span class="kicker">The honest version</span>
+    <h2>Nothing else does all three.</h2>
+    <div class="aff">
+      <div class="a"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Easy-on like FlyEase</b> — but actually in stock and affordable, not a sold-out resell.</p></div>
+      <div class="a"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Barefoot like Vivo or Xero</b> — but you never wrestle it onto your foot.</p></div>
+      <div class="a"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Made to your measurements</b> — not a generic size — at $189, delivered free.</p></div>
+    </div>
+  </section>
+
+  <!-- CREATORS -->
+  <section>
+    <span class="kicker">Who made it</span>
+    <h2>By the people it's for.</h2>
+    <div class="creator">
+      <figure class="brandmark"><img src="images/logo.png" alt="Ease Footwear — the Dara Knot logo"><figcaption>The Dara Knot — strength &amp; resilience</figcaption></figure>
+      <p><b>Ryan Jans</b> was born with cerebral palsy and has reviewed footwear since 2020. Ease Footwear puts accessibility and ease of entry first — the logo's Dara Knot and its colors are drawn from the Disability Pride flags.</p>
+      <p>EASE 1 was designed by <b>Sandel Concepcion of Lemniloop</b> and built on Zellerfeld's barefoot last — the first purpose-built easy-on sneaker on the platform.</p>
+      <p class="sig">Designed by the community it's for. That's the difference.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <span class="kicker">Before you buy</span>
+    <h2>Questions, answered.</h2>
+    <details><summary>Will it actually fit? <span class="pm">+</span></summary><p>Yes — it's printed from your own foot scan and reengineered to your exact sizes, so it's not off-the-shelf sizing. You scan before you order.</p></details>
+    <details><summary>Is 3D-printed durable? <span class="pm">+</span></summary><p>ZellerFoam is engineered to be soft and breathable yet stable and surprisingly durable for all-day wear. It's also reusable.</p></details>
+    <details><summary>Is it really that easy to put on? <span class="pm">+</span></summary><p>That's the whole point. A semi-collapsible heel lets you step in and go — no hands, no bending.</p></details>
+    <details><summary>What does "barefoot" mean for me? <span class="pm">+</span></summary><p>A 0&nbsp;mm heel-to-toe drop and minimal underfoot cushioning let your foot move naturally, promoting foot health, with a herringbone outsole for grip in all directions.</p></details>
+    <details><summary>How do I get my size right? <span class="pm">+</span></summary><p>Zellerfeld walks you through a quick phone scan of your feet. <a href="https://www.zellerfeld.com/pages/how-to-scan-your-feet" target="_blank" rel="noopener">See the guide →</a></p></details>
+    <details><summary>Why $189? <span class="pm">+</span></summary><p>It's made to fit, printed on demand, with free delivery — no warehouse markup and no waste. Comparable barefoot and adaptive sneakers sell off-the-shelf in a similar range, without the custom fit.</p></details>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <h2>Step in and go.</h2>
+    <a class="btn buy" data-place="final" href="#" target="_blank" rel="noopener">Buy EASE 1 — $189 <span class="ar">→</span></a>
+  </section>
+
+</main>
+
+<footer class="col">
+  <nav class="flinks" aria-label="More">
+    <a class="flink" href="https://www.zellerfeld.com/creators/ease-studio" target="_blank" rel="noopener"><span>Ease Studio — more from Ryan Jans</span><span class="ar">→</span></a>
+    <a class="flink" href="https://www.zellerfeld.com/pages/how-to-scan-your-feet" target="_blank" rel="noopener"><span>How to scan your feet</span><span class="ar">→</span></a>
+    <a class="flink" href="https://www.zellerfeld.com/" target="_blank" rel="noopener"><span>What is Zellerfeld?</span><span class="ar">→</span></a>
+  </nav>
+  <p class="foot">EASE 1 · designed by Sandel Concepcion, Lemniloop · in partnership with Ease Footwear by Ryan Jans.</p>
+</footer>
+
+<div class="sticky">
+  <div class="sticky-in">
+    <div class="lbl"><div class="p">$189</div><div class="s">free delivery</div></div>
+    <a class="btn buy" data-place="sticky" href="#" target="_blank" rel="noopener">Buy EASE 1 <span class="ar">→</span></a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var BASE="https://www.zellerfeld.com/products/ease-1";
+  var COLORS=[
+    {key:"stone", name:"Stone",  hex:"#c8c0b2", variant:"57832140669263"},
+    {key:"yellow",name:"Yellow", hex:"#e7c53f", variant:"57832142700879"},
+    {key:"oat",   name:"Oat",    hex:"#dccbb0", variant:"57832142766415"},
+    {key:"lilac", name:"Lilac",  hex:"#c7b4d7", variant:"57882927300943"},
+    {key:"black", name:"Black",  hex:"#1d1d1f", variant:"57832142733647"}
+  ];
+  var current=COLORS[0];
+  var inParams=new URLSearchParams(location.search);
+
+  function outUrl(place){
+    var p=new URLSearchParams();
+    p.set("variant",current.variant);
+    p.set("utm_source", inParams.get("utm_source") || inParams.get("ref") || "linkhub");
+    p.set("utm_medium", inParams.get("utm_medium") || "linkhub");
+    p.set("utm_campaign", inParams.get("utm_campaign") || "ease1_launch");
+    p.set("utm_content", place + "_" + current.key);
+    return BASE + "?" + p.toString();
+  }
+  function refreshBuys(){
+    [].forEach.call(document.querySelectorAll('.buy'),function(a){
+      a.setAttribute('href', outUrl(a.getAttribute('data-place')||'cta'));
+    });
+  }
+
+  var sw=document.getElementById('swatches');
+  COLORS.forEach(function(c,i){
+    var b=document.createElement('button');
+    b.className='sw'; b.type='button';
+    b.style.background=c.hex;
+    b.setAttribute('aria-label',c.name);
+    b.setAttribute('aria-pressed', i===0?'true':'false');
+    b.addEventListener('click',function(){
+      current=c;
+      [].forEach.call(sw.children,function(x){x.setAttribute('aria-pressed','false');});
+      b.setAttribute('aria-pressed','true');
+      document.getElementById('colorName').textContent=c.name;
+      refreshBuys();
+    });
+    sw.appendChild(b);
+  });
+
+  [].forEach.call(document.querySelectorAll('.shot img'),function(img){
+    img.addEventListener('error',function(){ img.parentNode.classList.add('broken'); });
+  });
+
+  refreshBuys();
+})();
+</script>
+</body>
+</html>
